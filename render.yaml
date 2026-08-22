@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: netease-telegram-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install --no-cache-dir -r requirements_render.txt
+    startCommand: python bot_v6.2.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: NETEASE_COOKIE
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: MUSIC_QUALITY
+        value: standard
+      - key: DB_TYPE
+        value: upstash
+      - key: UPSTASH_REDIS_REST_URL
+        sync: false
+      - key: UPSTASH_REDIS_REST_TOKEN
+        sync: false
+      - key: AUDIO_PROXY_URL
+        sync: false
+      - key: PORT
+        value: "10000"
